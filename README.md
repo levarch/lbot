@@ -2,6 +2,8 @@
 
 Based on Cobra CLI and Telebot
 
+[LBot Telegram link](https://t.me/levpa_bot)
+
 ## Packages and dependencies used
 
 - fmt
