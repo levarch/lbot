@@ -5,6 +5,6 @@ RUN make build
 
 FROM scratch
 WORKDIR /
-COPY --from=builder /go/src/app/lbot .
+COPY --from=builder /go/src/app/out/lbot .
 COPY --from=alpine:latest /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 ENTRYPOINT [ "./lbot" ]
