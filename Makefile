@@ -14,7 +14,7 @@ format:
 	gofmt -s -w ./
 
 lint:
-	go lint
+	golangci-lint run
 
 test:
 	go test -v
@@ -30,5 +30,5 @@ push: check
 	docker push ${REGISTRY}/${APP}:${TAG}-${SHA}-${TARGET_ARCH}
 
 clean:
-	docker image rm ${REGISTRY}/${APP}:${TAG}-${SHA}-${TARGET_ARCH}
+	docker image rm ${REGISTRY}/${APP}
 	rm -rf ./lbot
