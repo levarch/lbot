@@ -15,7 +15,7 @@ VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HE
 # docker tag constructed from version, architecture and operating system
 DOCKER_TAG=$(VERSION)-$(GOARCH)-$(GOOS)
 
-.SILENT:
+# .SILENT:
 check:
 	echo "\n GOOS: $(GOOS)  \n GOARCH: $(GOARCH) \n VERSION: $(VERSION)\n"
 
@@ -40,7 +40,7 @@ build: check
 	ls -lh ./$(BIN_FOLDER) | grep lbot | awk {'print $$5,$$8,$$9'} && echo
 
 image: check
-	docker build -t $(APP_PATH):$(DOCKER_TAG) -q .
+	docker build -t $(APP_PATH):$(DOCKER_TAG) .
 
 scan: check
 	docker scout quickview $(APP_PATH):$(DOCKER_TAG)
